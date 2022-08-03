@@ -56,10 +56,12 @@ const SessionProvider = ({ children }) => {
     []
   )
 
-  const handleLogout = useCallback(() => {
+  const signOut = useCallback(() => {
     sessionStorage.clear()
 
     setUser({})
+
+    router.push('/')
   }, [])
 
   useEffect(() => {
@@ -85,7 +87,7 @@ const SessionProvider = ({ children }) => {
         user,
         isAuthenticated,
         setSession,
-        handleLogout
+        signOut
       }}
     >
       {isLoading ? <ScreenLoading /> : children}

@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import qs from 'qs'
 import { useQuery } from '@tanstack/react-query'
-import { v4 as uuidv4 } from 'uuid'
 
 const useRecord = (
   resource,
@@ -11,9 +10,10 @@ const useRecord = (
     retryDelay: attempt =>
       Math.min(attempt > 1 ? 2 ** attempt * 1000 : 1000, 30 * 1000)
   },
-  forceIdPresence,
+  forceIdPresence = true,
   shouldFetch = true,
-  { query, action } = {}
+  query,
+  action
 ) => {
   const readyToFetch =
     resource !== null && (forceIdPresence ? !!id : shouldFetch)
@@ -30,10 +30,10 @@ const useRecord = (
       }`
     : null
   const { isLoading, isError, isSuccess, data, refetch, ...rest } = useQuery(
-    path || uuidv4(),
+    [path],
     { enabled: !!readyToFetch, ...options }
   )
-  const record = data?.record
+  const record = data
   const supInfo = _.omit(data, ['record', 'errors'])
   const errors = _.get(data, 'errors')
 
@@ -43,7 +43,6 @@ const useRecord = (
     isLoading,
     isError,
     isSuccess,
-    mutate: refetch,
     refetch,
     ...supInfo,
     ...rest

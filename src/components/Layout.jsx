@@ -1,16 +1,16 @@
 import Topbar from './Topbar'
 import Footer from './Footer'
 import PageHeader from './PageHeader'
+import Container from './Container'
 
-const Layout = ({ children }) => {
+const Layout = ({ pageTitle, breadcrumbs, children }) => {
   return (
     <>
       <Topbar />
-
-      <div className="py-10">
-        <PageHeader />
+      <div className="py-10 min-h-[800px]">
+        <PageHeader pageTitle={pageTitle} breadcrumbs={breadcrumbs} />
         <main>
-          <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</div>
+          <Container>{children}</Container>
         </main>
       </div>
       <Footer />

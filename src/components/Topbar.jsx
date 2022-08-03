@@ -5,17 +5,18 @@ import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
 import { useSessionContext } from '../contexts/SessionContext'
+import Container from '../components/Container'
 
 const navigation = [
-  { name: 'Início', href: '#', current: true },
+  { name: 'Minhas turmas', href: '/aluno', current: true },
   { name: 'Turmas abertas', href: '#', current: false },
   { name: 'Exercícios', href: '#', current: false },
   { name: 'Cursos', href: '#', current: false }
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' }
+  { name: 'Perfil', href: '/perfil' },
+  { name: 'Configurações', href: '/configuracoes' },
+  { name: 'Sair', href: '/sair' }
 ]
 
 function classNames(...classes) {
@@ -29,13 +30,13 @@ const Topbar = () => {
     <Disclosure as="header" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
+          <Container className="container mx-auto lg:divide-y lg:divide-gray-200">
             <div className="relative h-16 flex justify-between">
               <div className="relative z-10 px-2 flex lg:px-0">
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="/logo.svg"
                     alt="Workflow"
                   />
                 </div>
@@ -55,7 +56,7 @@ const Topbar = () => {
                     <input
                       id="search"
                       name="search"
-                      className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       placeholder="Busca"
                       type="search"
                     />
@@ -64,7 +65,7 @@ const Topbar = () => {
               </div>
               <div className="relative z-10 flex items-center lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                   <span className="sr-only">Open menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -76,7 +77,7 @@ const Topbar = () => {
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
                 <button
                   type="button"
-                  className="flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -85,7 +86,7 @@ const Topbar = () => {
                 {/* Profile dropdown */}
                 <Menu as="div" className="flex-shrink-0 relative ml-4">
                   <div>
-                    <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -144,7 +145,7 @@ const Topbar = () => {
                 </a>
               ))}
             </nav>
-          </div>
+          </Container>
 
           <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
             <div className="pt-2 pb-3 px-2 space-y-1">
@@ -184,7 +185,7 @@ const Topbar = () => {
                 </div>
                 <button
                   type="button"
-                  className="ml-auto flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="ml-auto flex-shrink-0 bg-white rounded-full p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />

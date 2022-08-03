@@ -10,7 +10,6 @@ const HomePage = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      console.log('isAuthenticated', isAuthenticated)
       if (isAuthenticated) router.push(`/${accessLevel}`)
       else router.push('/entrar')
     }

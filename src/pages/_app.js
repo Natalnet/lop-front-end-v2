@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { Helmet } from 'react-helmet'
 import {
   Hydrate,
   QueryClient,
@@ -40,14 +41,19 @@ const MyApp = ({ Component, pageProps }) => {
   )
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <SessionProvider>
-          {getLayout(<Component {...pageProps} />)}
-        </SessionProvider>
-      </Hydrate>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <>
+      <Helmet titleTemplate="%s | Plataforma LoP" defaultTitle="Plataforma LoP">
+        <html lang="en" amp />
+      </Helmet>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <SessionProvider>
+            <Component {...pageProps} />
+          </SessionProvider>
+        </Hydrate>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </>
   )
 }
 

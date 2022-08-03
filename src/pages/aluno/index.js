@@ -1,6 +1,7 @@
 import LoadWrapper from '../../components/LoadWrapper'
 import useRecords from '../../hooks/useRecords'
 import ClassCard from '../../domain/Classes/Card'
+import Layout from '../../components/Layout'
 
 const StudentHomePage = () => {
   const {
@@ -12,7 +13,7 @@ const StudentHomePage = () => {
   } = useRecords('/class')
 
   return (
-    <>
+    <Layout pageTitle="Minhas turmas">
       <LoadWrapper
         isLoading={isLoading}
         isError={isError}
@@ -28,7 +29,7 @@ const StudentHomePage = () => {
             ))}
         </ul>
       </LoadWrapper>
-    </>
+    </Layout>
   )
 }
 
