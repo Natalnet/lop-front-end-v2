@@ -12,7 +12,7 @@ const SignInPage = () => {
   const router = useRouter()
   const { setSession, accessLevel, isAuthenticated } = useSessionContext()
   const [email, setEmail] = useState(isDev ? 'wendellp.barreto@gmail.com' : '')
-  const [password, setPassword] = useState(isDev ? '99545856' : '')
+  const [password, setPassword] = useState(isDev ? '123123123' : '')
   const [msgEmail, setMsgEmail] = useState('')
   const [msgPass, setMsgPass] = useState('')
   const [msg, setMsg] = useState('')
@@ -64,7 +64,7 @@ const SignInPage = () => {
   )
 
   useEffect(() => {
-    if (isAuthenticated) router.push(`/${accessLevel}`)
+    if (isAuthenticated) router.push('/')
   }, [isAuthenticated])
 
   return (

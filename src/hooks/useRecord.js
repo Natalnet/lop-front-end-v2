@@ -2,19 +2,22 @@ import _ from 'lodash'
 import qs from 'qs'
 import { useQuery } from '@tanstack/react-query'
 
-const useRecord = (
-  resource,
-  id,
-  options = {
-    retry: false,
-    retryDelay: attempt =>
-      Math.min(attempt > 1 ? 2 ** attempt * 1000 : 1000, 30 * 1000)
-  },
-  forceIdPresence = true,
-  shouldFetch = true,
-  query,
-  action
-) => {
+const useRecord = (resource, id, args) => {
+  const { options, forceIdPresence, shouldFetch, query, action } = {
+    ...{
+      options: {
+        retry: false,
+        retryDelay: attempt =>
+          Math.min(attempt > 1 ? 2 ** attempt * 1000 : 1000, 30 * 1000)
+      },
+      forceIdPresence: true,
+      shouldFetch: true,
+      query: null,
+      action: null
+    },
+    ...args
+  }
+
   const readyToFetch =
     resource !== null && (forceIdPresence ? !!id : shouldFetch)
   const path = _.isFunction(resource)

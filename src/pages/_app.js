@@ -7,10 +7,14 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import dayjs from 'dayjs'
+import 'dayjs/locale/pt-br'
+dayjs.locale('pt-br')
 
 import Layout from '../components/Layout'
 import { SessionProvider } from '../contexts/SessionContext'
 import { api } from '../services/api'
+import App from '../domain/App'
 
 import '../../styles/globals.css'
 
@@ -48,7 +52,9 @@ const MyApp = ({ Component, pageProps }) => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <SessionProvider>
-            <Component {...pageProps} />
+            <App>
+              <Component {...pageProps} />
+            </App>
           </SessionProvider>
         </Hydrate>
         <ReactQueryDevtools />

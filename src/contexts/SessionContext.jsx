@@ -7,6 +7,7 @@ import React, {
   useEffect
 } from 'react'
 
+import { setCookie } from 'cookies-next'
 import _ from 'lodash'
 import { useRouter } from 'next/router'
 
@@ -24,7 +25,7 @@ const SessionProvider = ({ children }) => {
   const [user, _setUser] = useState({
     name: '',
     email: '',
-    urlImage: ''
+    avatarUrl: ''
   })
 
   const isAuthenticated = useMemo(
@@ -40,18 +41,22 @@ const SessionProvider = ({ children }) => {
 
   const setSession = useCallback(
     ({ token, accessLevel: _accessLevel, user }) => {
-      console.log(token, _accessLevel, user)
       const accessLevel = _accessLevel.toLowerCase()
 
       setToken(token)
       setAccessLevel(accessLevel)
       setUser(user)
 
+      setCookie('accessLevel', accessLevel)
+
       sessionStorage.setItem('token', token)
       sessionStorage.setItem('accessLevel', accessLevel)
       sessionStorage.setItem('userName', user.name)
       sessionStorage.setItem('userEmail', user.email)
-      sessionStorage.setItem('userAvatarUrl', user.avatarUrl)
+      sessionStorage.setItem(
+        'userAvatarUrl',
+        user.avatarUrl ? user.avatarUrl : ''
+      )
     },
     []
   )
@@ -90,7 +95,7 @@ const SessionProvider = ({ children }) => {
         signOut
       }}
     >
-      {isLoading ? <ScreenLoading /> : children}
+      {children}
     </SessionContext.Provider>
   )
 }

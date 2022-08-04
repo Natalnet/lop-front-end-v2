@@ -1,47 +1,29 @@
-import {
-  CheckCircleIcon,
-  ChevronRightIcon,
-  MailIcon
-} from '@heroicons/react/solid'
+import { CheckCircleIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import LoadWrapper from '../../../../components/LoadWrapper'
-import useRecord from '../../../../hooks/useRecord'
-import useRecords from '../../../../hooks/useRecords'
-import Layout from '../../../../components/Layout'
+import LoadWrapper from '../../../components/LoadWrapper'
+import useRecords from '../../../hooks/useRecords'
+import Layout, { PageHeader } from '../../../components/Layout'
 
 const ClassPage = () => {
   const router = useRouter()
   const { classId } = router.query
   const {
-    record: classItem,
+    records: classes,
     isLoading,
     isError,
     isSuccess,
     isEmpty
-  } = useRecord('/class', classId)
-  const { records: lists } = useRecords('/listQuestion', {
-    params: { idClass: classId }
-  })
+  } = useRecords('/class/open')
 
   return (
-    <Layout
-      pageTitle={classItem?.name}
-      breadcrumbs={[
-        { slug: 'my-classes', name: 'Minhas Turmas', href: '/aluno' },
-        {
-          slug: 'class',
-          name: classItem?.name,
-          href: `/aluno/turmas/${classId}`
-        },
-        {
-          slug: 'list',
-          name: 'Listas',
-          href: `/aluno/turmas/${classId}/listas`
-        }
-      ]}
-    >
+    <Layout>
+      <PageHeader
+        pageTitle="Turmas"
+        breadcrumbs={[{ slug: 'classes', name: 'Turmas', href: '/turmas' }]}
+      />
+
       <LoadWrapper
         isLoading={isLoading}
         isError={isError}
@@ -50,10 +32,10 @@ const ClassPage = () => {
       >
         <div className="bg-white shadow overflow-hidden sm:rounded-md">
           <ul role="list" className="divide-y divide-gray-200">
-            {lists &&
-              lists.map(list => (
+            {classes &&
+              classes.map(list => (
                 <li key={list.id}>
-                  <Link href={`/aluno/turmas/${classId}/listas/${list.id}`}>
+                  <Link href={`/turmas/${classId}/listas/${list.id}`}>
                     <a className="block hover:bg-gray-50">
                       <div className="flex items-center px-4 py-4 sm:px-6">
                         <div className="min-w-0 flex-1 flex items-center">

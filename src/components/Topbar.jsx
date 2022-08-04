@@ -8,10 +8,10 @@ import { useSessionContext } from '../contexts/SessionContext'
 import Container from '../components/Container'
 
 const navigation = [
-  { name: 'Minhas turmas', href: '/aluno', current: true },
-  { name: 'Turmas abertas', href: '#', current: false },
-  { name: 'Exercícios', href: '#', current: false },
-  { name: 'Cursos', href: '#', current: false }
+  { name: 'Minhas turmas', href: '', current: true },
+  { name: 'Turmas abertas', href: '/turmas', current: false },
+  { name: 'Exercícios', href: '/exercicios', current: false },
+  { name: 'Cursos', href: '/cursos', current: false }
 ]
 const userNavigation = [
   { name: 'Perfil', href: '/perfil' },
