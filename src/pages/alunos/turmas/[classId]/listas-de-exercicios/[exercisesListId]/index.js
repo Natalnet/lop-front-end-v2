@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
 import useRecord from '../../../../../../hooks/useRecord'
 import { ClassProvider } from '../../../../../../contexts/ClassContext'
@@ -18,36 +19,9 @@ const ClassExercisesListPage = () => {
     query: { idClass: classId }
   })
 
-  const ClassExercisesListPageHeader = classRecord => (
-    <PageHeader
-      pageTitle={exercicesList?.title}
-      breadcrumbs={[
-        { slug: 'my-classes', name: 'Minhas Turmas', href: '/' },
-        {
-          slug: 'class',
-          name: classRecord?.name,
-          href: `/turmas/${classId}`
-        },
-        {
-          slug: 'list',
-          name: 'Listas de exercícios',
-          href: `/turmas/${classId}/listas-de-exercicios`
-        },
-        {
-          slug: 'list',
-          name: exercicesList?.title,
-          href: `/turmas/${classId}/listas-de-exercicios/${exercisesListId}`
-        }
-      ]}
-    />
-  )
-
   return (
     <Layout>
-      <ClassProvider
-        classId={classId}
-        pageHeader={ClassExercisesListPageHeader}
-      >
+      <ClassProvider classId={classId}>
         <ExercisesList
           classId={classId}
           exercisesListId={exercisesListId}

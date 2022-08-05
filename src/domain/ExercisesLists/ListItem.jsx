@@ -6,7 +6,6 @@ import {
 } from '@heroicons/react/outline'
 import dayjs from 'dayjs'
 import Countdown from 'react-countdown'
-import { Popover } from '@headlessui/react'
 
 import Badge from '../../components/Badge'
 
@@ -86,11 +85,11 @@ const ExercisesListItem = ({
                       ({questionsCompletedSumissionsCount} de {questionsCount})
                     </span>
                   </span>
-                  <span className="w-full sm:w-[200px] h-[5px] bg-gray-200 ml-auto block rounded relative">
+                  <span className="w-full sm:w-[200px] h-1 bg-gray-200 ml-auto block rounded-md relative">
                     <span
-                      className={`absolute top-0 left-0 block h-full bg-${
+                      className={`absolute rounded-md top-0 left-0 block h-full bg-${
                         finished ? 'green' : 'blue'
-                      }-400 rounded`}
+                      }-400`}
                       style={{
                         width: `${(
                           (questionsCompletedSumissionsCount / questionsCount) *

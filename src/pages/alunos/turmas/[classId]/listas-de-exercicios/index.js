@@ -8,28 +8,9 @@ const ClassPage = () => {
   const router = useRouter()
   const { classId } = router.query
 
-  const ClassPageHeader = classRecord => (
-    <PageHeader
-      pageTitle="Listas de exercícios"
-      breadcrumbs={[
-        { slug: 'my-classes', name: 'Minhas Turmas', href: '/' },
-        {
-          slug: 'class',
-          name: classRecord?.name,
-          href: `/turmas/${classId}`
-        },
-        {
-          slug: 'list',
-          name: 'Listas de exercícios',
-          href: `/turmas/${classId}/listas-de-exercicios`
-        }
-      ]}
-    />
-  )
-
   return (
     <Layout>
-      <ClassProvider classId={classId} pageHeader={ClassPageHeader}>
+      <ClassProvider classId={classId}>
         <ExercisesLists classId={classId} />
       </ClassProvider>
     </Layout>

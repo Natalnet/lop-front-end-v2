@@ -17,7 +17,7 @@ import {
 import _ from 'lodash'
 
 import useRecord from '../hooks/useRecord'
-import { PageSubHeader } from '../components/Layout'
+import { PageHeader, PageSubHeader } from '../components/Layout'
 
 const ClassContext = createContext()
 
@@ -70,7 +70,10 @@ const ClassProvider = ({ classId, pageHeader, children }) => {
         isEmptyClass
       }}
     >
-      {pageHeader(classRecord)}
+      <PageHeader
+        pageTitle={classRecord?.name}
+        description={classRecord?.description}
+      />
       <PageSubHeader navItems={navItems} />
       {children}
     </ClassContext.Provider>

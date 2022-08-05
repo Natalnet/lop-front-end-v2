@@ -1,27 +1,38 @@
 import Link from 'next/link'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
 
 const PageSubHeader = ({ navItems = [] }) => {
+  const router = useRouter()
   const isActive = href =>
     typeof window !== 'undefined' && location.pathname.startsWith(href)
+
+  const handleNavigate = e => router.push(e.target.value)
 
   return (
     <div className="bg-gray-100">
       <div className="sm:hidden">
-        <label htmlFor="tabs" className="sr-only">
-          Selecione uma página
-        </label>
-        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-        <select
-          id="tabs"
-          name="tabs"
-          className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-          defaultValue={navItems.find(navItem => isActive(navItem.href))?.name}
-        >
-          {navItems.map(navItem => (
-            <option key={navItem.name}>{navItem.name}</option>
-          ))}
-        </select>
+        <div className="p-3 border-b border-gray-200">
+          <label htmlFor="tabs" className="sr-only">
+            Selecione uma página
+          </label>
+          {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+          <select
+            id="tabs"
+            name="tabs"
+            className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            defaultValue={
+              navItems.find(navItem => isActive(navItem.href))?.href
+            }
+            onChange={handleNavigate}
+          >
+            {navItems.map(navItem => (
+              <option key={navItem.name} value={navItem.href}>
+                {navItem.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="hidden sm:block">
         <div className="sm:px-6 lg:px-8 border-b border-gray-200">
