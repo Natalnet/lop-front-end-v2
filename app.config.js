@@ -1,7 +1,7 @@
 const themeConfig = {
   siteName: 'Plataforma LoP',
-  logo: '/logo.svg',
-  logoIcon: '/logo.svg'
+  logo: '/logo.png',
+  icon: '/icon.png'
 }
 
 module.exports = themeConfig

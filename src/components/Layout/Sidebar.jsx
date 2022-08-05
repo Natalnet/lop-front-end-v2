@@ -30,7 +30,10 @@ const Sidebar = () => {
   const isActive = href => href === location.pathname
 
   return (
-    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100">
+    <div
+      className="hidden bg-[#070126] lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100"
+      style={{ backgroundColor: '#070126' }}
+    >
       <div className="flex items-center flex-shrink-0 px-6">
         <img className="h-8 w-auto" src={logo} alt={siteName} />
       </div>
@@ -70,8 +73,8 @@ const Sidebar = () => {
                 <a
                   className={classNames(
                     isActive(item.href)
-                      ? 'bg-gray-200 text-gray-900'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
+                      ? 'text-gray-100'
+                      : 'text-gray-200 hover:text-gray-900 hover:bg-gray-50',
                     'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                   )}
                   aria-current={isActive(item.href) ? 'page' : undefined}
