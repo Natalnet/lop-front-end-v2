@@ -12,7 +12,7 @@ const PageHeader = ({ pageTitle = '', description, breadcrumbs = [] }) => {
       <Helmet>
         <title>{pageTitle}</title>
       </Helmet>
-      <div className="page-header min-h-[100px] border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="page-header min-h-[100px] border-b border-slate-800 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div>
           {/* {breadcrumbs && breadcrumbs.length > 0 && (
             <div>
@@ -69,10 +69,10 @@ const PageHeader = ({ pageTitle = '', description, breadcrumbs = [] }) => {
             </div>
           )} */}
           <div className="flex-1 min-w-0">
-            <h1 className="text-lg leading-6 font-semibold text-gray-900 sm:truncate">
+            <h1 className="text-xl leading-6 font-semibold text-slate-200 sm:truncate">
               {pageTitle}
             </h1>
-            <p className="mt-1 text-sm text-gray-500">{description}</p>
+            <p className="mt-1 text-sm text-slate-400">{description}</p>
           </div>
         </div>
         {/* <div className="mt-4 flex sm:mt-0 sm:ml-4">

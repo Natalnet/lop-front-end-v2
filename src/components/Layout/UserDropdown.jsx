@@ -13,7 +13,7 @@ const UserDropdown = () => {
   return (
     <Menu as="div" className="px-3 relative inline-block text-left">
       <div>
-        <Menu.Button className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500">
+        <Menu.Button className="group w-full bg-slate-800 rounded-md px-3.5 py-2 text-sm text-left font-medium text-slate-400 hover:bg-slate-700 focus:outline-none dark:highlight-white/5">
           <span className="flex w-full justify-between items-center">
             <span className="flex min-w-0 items-center justify-between space-x-3">
               <img
@@ -25,16 +25,16 @@ const UserDropdown = () => {
                 alt=""
               />
               <span className="flex-1 flex flex-col min-w-0">
-                <span className="text-gray-900 text-sm font-medium truncate">
+                <span className="ttext-slate-400 text-sm font-medium truncate">
                   {user.name}
                 </span>
-                <span className="text-gray-500 text-sm truncate">
+                <span className="text-slate-500 text-sm truncate">
                   {user.email}
                 </span>
               </span>
             </span>
             <SelectorIcon
-              className="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+              className="flex-shrink-0 h-5 w-5 text-slate-400 group-hover:text-slate-500"
               aria-hidden="true"
             />
           </span>
@@ -49,14 +49,14 @@ const UserDropdown = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none">
+        <Menu.Items className="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-slate-800 ring-1 ring-black ring-opacity-5 divide-y divide-slate-700 focus:outline-none dark:highlight-white/5">
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active ? 'text-slate-200' : 'text-slate-300',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -69,7 +69,7 @@ const UserDropdown = () => {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active ? 'text-slate-200' : 'text-slate-300',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -82,7 +82,7 @@ const UserDropdown = () => {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active ? 'text-slate-200' : 'text-slate-300',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -97,7 +97,7 @@ const UserDropdown = () => {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active ? 'text-slate-200' : 'text-slate-300',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -110,7 +110,7 @@ const UserDropdown = () => {
                 <a
                   href="#"
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    active ? 'text-slate-200' : 'text-slate-300',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -125,7 +125,7 @@ const UserDropdown = () => {
                 <Link href="/sair" passHref>
                   <a
                     className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      active ? 'text-slate-200' : 'text-slate-300',
                       'block px-4 py-2 text-sm'
                     )}
                   >

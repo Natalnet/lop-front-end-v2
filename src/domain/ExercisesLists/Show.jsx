@@ -20,7 +20,9 @@ const ExercisesList = ({
   return (
     <div className="px-4 pt-10 sm:px-6 lg:px-8">
       <div className="flex w-full items-center justify-between">
-        <h3 className="text-md leading-6 font-medium text-gray-900">{title}</h3>
+        <h3 className="text-md leading-6 font-medium text-slate-400">
+          {title}
+        </h3>
         <div>
           <span className="text-xs font-medium text-right block w-full mb-1">
             {percent}%{' '}
@@ -39,7 +41,7 @@ const ExercisesList = ({
               href={`/turmas/${classId}/listas-de-exercicios/${exercisesListId}/exercicios/${item.id}`}
               passHref
             >
-              <a className="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow-sm rounded-md border border-gray-100 overflow-hidden">
+              <a className="relative bg-slate-800 pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow-sm rounded-md dark:highlight-white/5 overflow-hidden">
                 <dt className="min-h-[50px]">
                   <div className="absolute bg-indigo-500 rounded-md p-3">
                     <CodeIcon
@@ -47,16 +49,16 @@ const ExercisesList = ({
                       aria-hidden="true"
                     />
                   </div>
-                  <p className="ml-16 text-sm font-medium text-gray-600">
+                  <p className="ml-16 text-md font-medium text-slate-300">
                     {item.title}
                   </p>
                 </dt>
                 <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
-                  <div className="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
+                  <div className="absolute bottom-0 inset-x-0 bg-slate-700 px-4 py-4 sm:px-6">
                     <div className="text-sm">
                       <a
                         href="#"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                        className="font-medium text-slate-100 hover:text-secondary"
                       >
                         Iniciar
                       </a>

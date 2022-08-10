@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 import { useSessionContext } from '../contexts/SessionContext'
 import { api } from '../services/api'
+import Button from '../components/Button'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -68,16 +69,36 @@ const SignInPage = () => {
   }, [isAuthenticated])
 
   return (
-    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 antialiased">
+      <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+        <div className="w-[108rem] flex-none flex justify-end">
+          <picture>
+            <source srcSet="/1.avif" type="image/avif" />
+            <img
+              src="/2.png"
+              alt=""
+              className="w-[71.75rem] flex-none max-w-none dark:hidden"
+            />
+          </picture>
+          <picture>
+            <source srcSet="/3.avif" type="image/avif" />
+            <img
+              src="/4.png"
+              alt=""
+              className="w-[90rem] flex-none max-w-none hidden dark:block"
+            />
+          </picture>
+        </div>
+      </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <img className="mx-auto h-12 w-auto" src="/logo.svg" alt="Workflow" />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <img className="mx-auto h-14 w-auto" src="/logo.png" alt="Workflow" />
+        <h2 className="mt-6 text-center text-3xl font-bold text-slate-900 dark:text-gray-200">
           Entre na plataforma
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
+        <p className="mt-2 text-center text-sm">
           ou{' '}
           <Link href="/cadastre-se" passHref>
-            <a className="font-medium text-blue-600 hover:text-blue-500">
+            <a className="font-medium text-tertiary dark:text-white hover:text-tertiary dark:hover:text-tertiary">
               cadastre-se
             </a>
           </Link>
@@ -85,12 +106,12 @@ const SignInPage = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onClick={handleLogin}>
+        <div className="bg-slate-800  py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-slate-200"
               >
                 E-mail
               </label>
@@ -101,7 +122,7 @@ const SignInPage = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="appearance-none block w-full px-3 py-2 bg-slate-900 border border-slate-900 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                 />
@@ -111,7 +132,7 @@ const SignInPage = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-slate-200"
               >
                 Senha
               </label>
@@ -122,7 +143,7 @@ const SignInPage = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="appearance-none block bg-slate-900 border border-slate-900 w-full px-3 py-2 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                 />
@@ -139,7 +160,7 @@ const SignInPage = () => {
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
+                  className="ml-2 block text-sm text-slate-100"
                 >
                   Lembre-se de mim
                 </label>
@@ -147,7 +168,7 @@ const SignInPage = () => {
 
               <div className="text-sm">
                 <Link href="/esqueci-a-senha" passHref>
-                  <a className="font-medium text-blue-600 hover:text-blue-500">
+                  <a className="font-medium text-slate-200">
                     Esqueceu sua senha?
                   </a>
                 </Link>
@@ -155,16 +176,13 @@ const SignInPage = () => {
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              >
+              <button type="submit" className="btn-primary w-full">
                 Entrar
               </button>
             </div>
           </form>
 
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
@@ -236,7 +254,7 @@ const SignInPage = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

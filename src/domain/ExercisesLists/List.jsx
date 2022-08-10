@@ -25,8 +25,8 @@ const ExercisesLists = ({ classId }) => {
         isSuccess={isSuccess}
         isEmpty={isEmpty}
       >
-        <div className="bg-white shadow overflow-hidden sm:rounded-md">
-          <ul role="list" className="divide-y divide-gray-200">
+        <div className="bg-transparent  overflow-hidden">
+          <ul role="list" className="divide-y divide-slate-700">
             {exercicesLists &&
               exercicesLists.map(exercisesList => (
                 <ExercisesListItem

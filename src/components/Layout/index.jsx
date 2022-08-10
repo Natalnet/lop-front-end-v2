@@ -27,7 +27,27 @@ const Layout = ({ navigation, children }) => {
 
   return (
     <>
-      <div className="min-h-full">
+      <div className="absolute top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+        <div className="w-[108rem] flex-none flex justify-end">
+          <picture>
+            <source srcSet="/1.avif" type="image/avif" />
+            <img
+              src="/2.png"
+              alt=""
+              className="w-[71.75rem] flex-none max-w-none dark:hidden"
+            />
+          </picture>
+          <picture>
+            <source srcSet="/3.avif" type="image/avif" />
+            <img
+              src="/4.png"
+              alt=""
+              className="w-[90rem] flex-none max-w-none hidden dark:block"
+            />
+          </picture>
+        </div>
+      </div>
+      <div className="min-h-full relative">
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
@@ -154,7 +174,7 @@ const Layout = ({ navigation, children }) => {
         <Sidebar />
 
         {/* Main column */}
-        <div className="lg:pl-64 flex flex-col">
+        <div className="lg:pl-64 flex flex-col ">
           {/* Search header */}
           <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
             <button

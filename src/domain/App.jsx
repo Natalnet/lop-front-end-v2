@@ -9,7 +9,7 @@ import {
   ClipboardListIcon,
   CollectionIcon,
   BookOpenIcon
-} from '@heroicons/react/outline'
+} from '@heroicons/react/solid'
 
 import { AppProvider } from '../contexts/AppContext'
 import { useSessionContext } from '../contexts/SessionContext'

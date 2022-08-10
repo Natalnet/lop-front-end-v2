@@ -18,14 +18,16 @@ const ClassCard = ({
 
   return (
     <Link href={`/turmas/${id}`} passHref>
-      <a className="bg-white shadow-sm border border-gray-200 overflow-hidden sm:rounded-lg h-full flex flex-col">
-        <div className="border-b border-gray-200 px-4 py-5 sm:px-6">
+      <a className="bg-white dark:bg-slate-800 shadow-sm border border-slate-700 overflow-hidden sm:rounded-lg h-full flex flex-col">
+        <div className="border-b border-slate-700 px-4 py-5 sm:px-6">
           <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
             <div className="ml-4 mt-4">
-              <h3 className="text-lg leading-6 font-bold text-gray-900">
+              <h3 className="text-lg leading-6 font-bold text-slate-400 dark:text-white">
                 {name}
               </h3>
-              <p className="mt-1 text-sm text-gray-500">{code}</p>
+              <p className="mt-1 text-sm text-slate-300 dark:text-slate-400">
+                {code}
+              </p>
             </div>
             <div className="ml-4 mt-4 flex-shrink-0">
               {languages && (
@@ -41,32 +43,32 @@ const ClassCard = ({
         <div className="px-4 py-5 sm:px-6">
           <dl className="grid grid-cols-2 gap-x-4 gap-y-8">
             <div className="col-span-2">
-              <dt className="text-sm font-medium text-gray-500">Descrição</dt>
-              <dd className="mt-1 text-sm text-gray-900">{description}</dd>
+              <dt className="text-sm font-medium text-slate-300">Descrição</dt>
+              <dd className="mt-1 text-sm text-slate-400">{description}</dd>
             </div>
             <div className="col-span-1">
-              <dt className="text-sm font-medium text-gray-500">Semestre</dt>
-              <dd className="mt-1 text-sm text-gray-900">
+              <dt className="text-sm font-medium text-slate-300">Semestre</dt>
+              <dd className="mt-1 text-sm text-slate-400">
                 {year}.{semester}
               </dd>
             </div>
             <div className="col-span-1">
-              <dt className="text-sm font-medium text-gray-500">
+              <dt className="text-sm font-medium text-slate-300">
                 Participantes
               </dt>
-              <dd className="mt-1 text-sm text-gray-900">{usersCount}</dd>
+              <dd className="mt-1 text-sm text-slate-400">{usersCount}</dd>
             </div>
             <div className="col-span-1">
-              <dt className="text-sm font-medium text-gray-500">Listas</dt>
-              <dd className="mt-1 text-sm text-gray-900">{listsCount}</dd>
+              <dt className="text-sm font-medium text-slate-300">Listas</dt>
+              <dd className="mt-1 text-sm text-slate-400">{listsCount}</dd>
             </div>
             <div className="col-span-1">
-              <dt className="text-sm font-medium text-gray-500">Provas</dt>
-              <dd className="mt-1 text-sm text-gray-900">{testsCount}</dd>
+              <dt className="text-sm font-medium text-slate-300">Provas</dt>
+              <dd className="mt-1 text-sm text-slate-400">{testsCount}</dd>
             </div>
           </dl>
         </div>
-        <div className="border-t border-gray-200 px-4 py-5 sm:px-6 mt-auto">
+        <div className="border-t border-slate-700 px-4 py-5 sm:px-6 mt-auto">
           <div className="w-full flex items-center justify-between">
             <img
               className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0 mr-4"
@@ -75,11 +77,11 @@ const ClassCard = ({
             />
             <div className="flex-1 truncate">
               <div className="flex items-center space-x-3">
-                <h3 className="text-gray-900 text-sm font-medium truncate">
+                <h3 className="text-slate-400 text-sm font-medium truncate">
                   {author.name}
                 </h3>
               </div>
-              <p className="mt-1 text-gray-500 text-sm truncate">
+              <p className="mt-1 text-slate-300 text-sm truncate">
                 {author.email}
               </p>
             </div>

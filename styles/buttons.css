@@ -1,0 +1,8 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  button.btn-primary,
+  .btn-primary {
+    @apply flex justify-center px-4 py-2 shadow-sm text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-slate-800 bg-gradient-to-r from-primary to-tertiary;
+  }
+}

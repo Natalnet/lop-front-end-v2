@@ -30,10 +30,7 @@ const Sidebar = () => {
   const isActive = href => href === location.pathname
 
   return (
-    <div
-      className="hidden bg-[#070126] lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100"
-      style={{ backgroundColor: '#070126' }}
-    >
+    <div className="hidden bg-rich-black lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-slate-800 lg:pt-5 lg:pb-4">
       <div className="flex items-center flex-shrink-0 px-6">
         <img className="h-8 w-auto" src={logo} alt={siteName} />
       </div>
@@ -56,11 +53,12 @@ const Sidebar = () => {
                 aria-hidden="true"
               />
             </div>
+
             <input
               type="text"
               name="search"
               id="search"
-              className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-9 sm:text-sm border-gray-300 rounded-md"
+              className="block w-full pl-9 sm:text-sm rounded-md text-slate-300 border-0 dark:bg-slate-800 dark:highlight-white/5"
               placeholder="Search"
             />
           </div>
@@ -73,17 +71,17 @@ const Sidebar = () => {
                 <a
                   className={classNames(
                     isActive(item.href)
-                      ? 'text-gray-100'
-                      : 'text-gray-200 hover:text-gray-900 hover:bg-gray-50',
-                    'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                      ? 'text-slate-200'
+                      : 'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300',
+                    'group flex items-center px-2 py-2 text-sm font-semibold rounded-md'
                   )}
                   aria-current={isActive(item.href) ? 'page' : undefined}
                 >
                   <item.icon
                     className={classNames(
                       isActive(item.href)
-                        ? 'text-gray-500'
-                        : 'text-gray-400 group-hover:text-gray-500',
+                        ? 'text-secondary'
+                        : 'text-indigo-300 group-hover:text-indigo-400',
                       'mr-3 flex-shrink-0 h-6 w-6'
                     )}
                     aria-hidden="true"

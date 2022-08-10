@@ -10,9 +10,9 @@ const PageSubHeader = ({ navItems = [] }) => {
   const handleNavigate = e => router.push(e.target.value)
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-slate-800">
       <div className="sm:hidden">
-        <div className="p-3 border-b border-gray-200">
+        <div className="p-3 border-b border-slate-700">
           <label htmlFor="tabs" className="sr-only">
             Selecione uma página
           </label>
@@ -20,7 +20,7 @@ const PageSubHeader = ({ navItems = [] }) => {
           <select
             id="tabs"
             name="tabs"
-            className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            className="block w-full pl-3 pr-10 py-2 text-base border-slate-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
             defaultValue={
               navItems.find(navItem => isActive(navItem.href))?.href
             }
@@ -35,15 +35,15 @@ const PageSubHeader = ({ navItems = [] }) => {
         </div>
       </div>
       <div className="hidden sm:block">
-        <div className="sm:px-6 lg:px-8 border-b border-gray-200">
+        <div className="sm:px-6 lg:px-8 border-b border-slate-700">
           <nav className="-mb-px flex space-x-8" aria-label="Tabs">
             {navItems.map(navItem => (
               <Link key={navItem.name} href={navItem.href} passHref>
                 <a
                   className={classNames(
                     isActive(navItem.href)
-                      ? 'border-indigo-500 text-indigo-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+                      ? 'border-secondary text-slate-200'
+                      : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-secondary',
                     'flex items-center whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm'
                   )}
                   aria-current={isActive(navItem.href) ? 'page' : undefined}
@@ -52,8 +52,8 @@ const PageSubHeader = ({ navItems = [] }) => {
                     <navItem.icon
                       className={classNames(
                         isActive(navItem.href)
-                          ? 'text-indigo-500'
-                          : 'text-gray-400 group-hover:text-gray-500',
+                          ? 'text-secondary'
+                          : 'text-slate-600 group-hover:text-slate-400',
                         '-ml-0.5 mr-2 h-5 w-5'
                       )}
                       aria-hidden="true"

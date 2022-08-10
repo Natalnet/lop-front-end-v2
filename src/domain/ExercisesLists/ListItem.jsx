@@ -28,7 +28,7 @@ const ExercisesListItem = ({
   return (
     <li>
       <Link href={href}>
-        <a className="block hover:bg-gray-50">
+        <a className="block hover:bg-slate-700/10 text-slate-300 hover:text-slate-200">
           <div className="flex items-center px-4 py-5 sm:px-6">
             <div className="min-w-0 flex-1 flex items-center">
               <div className="flex-shrink-0">
@@ -39,7 +39,7 @@ const ExercisesListItem = ({
                   />
                 ) : (
                   <DotsCircleHorizontalIcon
-                    className="flex-shrink-0 mr-4 h-5 w-5 text-gray-200"
+                    className="flex-shrink-0 mr-4 h-5 w-5 text-slate-800"
                     aria-hidden="true"
                   />
                 )}
@@ -51,7 +51,7 @@ const ExercisesListItem = ({
                       Fechado
                     </Badge>
                   )} */}
-                  <p className="text-sm font-medium text-gray-900 block">
+                  <p className="text-sm font-semibold  block">
                     {title}
                     {classHasListQuestion?.submissionDeadline && !closed && (
                       <span className="text-gray-500 font-normal">
